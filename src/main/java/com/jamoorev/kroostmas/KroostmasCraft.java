@@ -9,6 +9,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,6 +21,13 @@ public class KroostmasCraft {
 
     @SidedProxy(clientSide = "com.jamoorev.kroostmas.proxy.ClientProxy",serverSide = "com.jamoorev.kroostmas.proxy.CommonProxy")
     public static IProxy proxy;
+
+    public static CreativeTabs tab = new CreativeTabs("Kroostmas") {
+        @Override
+        public Item getTabIconItem() {
+            return Item.getItemFromBlock(BlockRegistry.present);
+        }
+    };
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

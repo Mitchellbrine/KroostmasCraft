@@ -1,5 +1,6 @@
 package com.jamoorev.kroostmas.item;
 
+import com.jamoorev.kroostmas.KroostmasCraft;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 
@@ -24,6 +25,7 @@ public class ItemRegistry {
     private static void registerAll() {
         for (Item item : items) {
             GameRegistry.registerItem(item, item.getUnlocalizedName().substring(5));
+            KroostmasCraft.logger.info("Registered item " + item + " with the name " + item.getUnlocalizedName().substring(5));
         }
     }
 
