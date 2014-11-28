@@ -1,3 +1,7 @@
 present.owner.set=You are now the proud owner of a Kroostmas present! Have fun!
+present.recipient.set=This present is to: %s
+present.setting.null=The gift tag is null! Oh nose!
 
 tile.present.name=Kroostmas Present
+
+item.giftTag.name=Gift Tag

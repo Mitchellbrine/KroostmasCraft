@@ -1,5 +1,6 @@
 package com.jamoorev.kroostmas.block;
 
+import com.jamoorev.kroostmas.item.ItemRegistry;
 import com.jamoorev.kroostmas.tileentity.TileEntityPresent;
 import com.jamoorev.kroostmas.util.References;
 import net.minecraft.block.material.Material;
@@ -46,10 +47,6 @@ public class BlockPresent extends KroostmasTileBlock{
                         }
                         te.setOwner(player.getGameProfile().getId());
                     }
-                    if (te.getOwner().equals(player.getGameProfile().getId())) {
-                        te.openSettings();
-                        // TODO: Create GUI for setting recipient
-                    }
                 }
             } else {
                 TileEntity tileEntity = world.getTileEntity(x,y,z);
@@ -61,9 +58,18 @@ public class BlockPresent extends KroostmasTileBlock{
                     }
                 }
             }
-            return true;
+        } else {
+            if (!player.isSneaking()) {
+                TileEntity tileEntity = world.getTileEntity(x,y,z);
+                if (tileEntity instanceof TileEntityPresent) {
+                    TileEntityPresent te = (TileEntityPresent) world.getTileEntity(x, y, z);
+                    if (player.getCurrentEquippedItem().getItem() == ItemRegistry.giftTag) {
+                        te.setRecipient(player, player.getCurrentEquippedItem());
+                    }
+                }
+            }
         }
-        return false;
+        return true;
     }
 
     @Override

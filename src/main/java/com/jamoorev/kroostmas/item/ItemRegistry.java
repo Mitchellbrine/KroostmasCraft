@@ -14,9 +14,11 @@ public class ItemRegistry {
 
     public static List<Item> items = new ArrayList<Item>();
 
+    public static Item giftTag;
+
     public static void init() {
 
-
+        giftTag = new GiftTag();
 
         // All items need to be registered before this!
         registerAll();

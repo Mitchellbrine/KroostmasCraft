@@ -9,6 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.ChatStyle;
+import net.minecraft.util.EnumChatFormatting;
 
 import java.util.UUID;
 
@@ -89,8 +92,11 @@ public class TileEntityPresent extends TileEntity implements ISidedInventory, II
         KroostmasCraft.logger.error("TODO: Create GUI and Container and Stuff");
     }
 
-    public void openSettings() {
-        KroostmasCraft.logger.error("TODO: Create GUI and Stuff");
+    public void setRecipient(EntityPlayer player, ItemStack stack) {
+        if (!stack.getDisplayName().equalsIgnoreCase("Gift Tag")) {
+            this.recipient = EnumChatFormatting.getTextWithoutFormattingCodes(stack.getDisplayName());
+            if (!player.worldObj.isRemote) player.addChatComponentMessage(new ChatComponentTranslation("present.recipient.set",this.recipient).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.LIGHT_PURPLE)));
+        }
     }
 
     @Override
