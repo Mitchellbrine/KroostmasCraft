@@ -17,4 +17,16 @@ public abstract class KroostmasTileBlock extends BlockContainer{
         BlockRegistry.blocks.add(this);
     }
 
+    public boolean isOpaqueCube() {
+        return false;
+    }
+
+    public int getRenderType() {
+        return -1;
+    }
+
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+
 }

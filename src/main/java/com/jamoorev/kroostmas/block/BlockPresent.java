@@ -19,21 +19,9 @@ public class BlockPresent extends KroostmasTileBlock{
     public BlockPresent() {
         super(Material.cloth);
         this.setBlockName("present");
-        this.setBlockTextureName(References.RESOURCEPREFIX + "present");
-        this.setBlockBounds(0.0625F,0.0F,0.0625F,0.9375F,0.9375F,0.9375F);
+        this.setBlockBounds(0.0625F,0.0F,0.0625F,0.9375F,0.875F,0.9375F);
     }
 
-    public boolean isOpaqueCube() {
-        return false;
-    }
-
-    public int getRenderType() {
-        return 0;
-    }
-
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
 
     @Override
     public TileEntity createNewTileEntity(World world, int meta) {
@@ -58,15 +46,19 @@ public class BlockPresent extends KroostmasTileBlock{
                         }
                         te.setOwner(player.getGameProfile().getId());
                     }
-                    te.openSettings();
-                    // TODO: Create GUI for setting recipient
+                    if (te.getOwner().equals(player.getGameProfile().getId())) {
+                        te.openSettings();
+                        // TODO: Create GUI for setting recipient
+                    }
                 }
             } else {
-                // TODO: Create GUI and Container and Stuff
                 TileEntity tileEntity = world.getTileEntity(x,y,z);
                 if (tileEntity instanceof TileEntityPresent) {
                     TileEntityPresent te = (TileEntityPresent) world.getTileEntity(x, y, z);
-                    te.openChest();
+                    if ((te.getOwner() != null && te.getOwner().equals(player.getGameProfile().getId())) || te.getRecipient().equalsIgnoreCase(player.getCommandSenderName())) {
+                        te.openChest(player);
+                        // TODO: Create GUI and Container and Stuff
+                    }
                 }
             }
             return true;
@@ -77,7 +69,7 @@ public class BlockPresent extends KroostmasTileBlock{
     @Override
     public void registerBlockIcons(IIconRegister ir)
     {
-        blockIcon = ir.registerIcon(References.RESOURCEPREFIX + "machines/wandCarverIcon");
+        blockIcon = ir.registerIcon(References.RESOURCEPREFIX + "present");
     }
 
 }
