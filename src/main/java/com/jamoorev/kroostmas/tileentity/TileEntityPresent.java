@@ -94,8 +94,12 @@ public class TileEntityPresent extends TileEntity implements ISidedInventory, II
 
     public void setRecipient(EntityPlayer player, ItemStack stack) {
         if (!stack.getDisplayName().equalsIgnoreCase("Gift Tag")) {
-            this.recipient = EnumChatFormatting.getTextWithoutFormattingCodes(stack.getDisplayName());
-            if (!player.worldObj.isRemote) player.addChatComponentMessage(new ChatComponentTranslation("present.recipient.set",this.recipient).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.LIGHT_PURPLE)));
+            if (player.getGameProfile().getId().equals(this.uuid)) {
+                this.recipient = EnumChatFormatting.getTextWithoutFormattingCodes(stack.getDisplayName());
+                stack = null;
+                if (!player.worldObj.isRemote)
+                    player.addChatComponentMessage(new ChatComponentTranslation("present.recipient.set", this.recipient).setChatStyle(new ChatStyle().setColor(EnumChatFormatting.LIGHT_PURPLE)));
+            }
         }
     }
 

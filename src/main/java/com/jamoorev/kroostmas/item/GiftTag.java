@@ -10,6 +10,7 @@ public class GiftTag extends KroostmasItem {
     public GiftTag() {
         super();
         this.setUnlocalizedName("giftTag");
+        this.setMaxStackSize(1);
         this.setTextureName(References.RESOURCEPREFIX + "giftTag");
     }
 
