@@ -21,11 +21,12 @@ import java.util.UUID;
 public class TileEntityPresent extends TileEntity implements ISidedInventory, IInventory {
 
     private UUID uuid;
-    private String recipient;
+    private String recipient, ownerName;
     public ItemStack[] items = new ItemStack[27];
 
         public TileEntityPresent() {
             recipient = "";
+            ownerName = "";
         }
 
     public void writeToNBT(NBTTagCompound nbt) {
@@ -83,8 +84,10 @@ public class TileEntityPresent extends TileEntity implements ISidedInventory, II
         return this.uuid;
     }
 
-    public void setOwner(UUID uuid) {
-        this.uuid = uuid;
+    public void setOwner(EntityPlayer player) {
+        this.uuid = player.getGameProfile().getId();
+        this.ownerName = player.getCommandSenderName();
+
     }
 
     public void openChest(EntityPlayer player) {
@@ -250,6 +253,18 @@ public class TileEntityPresent extends TileEntity implements ISidedInventory, II
 
     public ItemStack[] getItems() {
         return items;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getOwnerName() {
+        return this.ownerName;
     }
 
 }

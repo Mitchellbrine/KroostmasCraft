@@ -5,3 +5,18 @@ present.setting.null=The gift tag is null! Oh nose!
 tile.present.name=Kroostmas Present
 
 item.giftTag.name=Gift Tag
+item.rick.name=Music Disc
+item.nyan.name=Music Disc
+item.allbegone.name=Music Disc
+item.spoon.name=Music Disc
+item.uwot.name=Music Disc
+item.halflife.name=Music Disc
+
+item.record.rick.desc=Rick Astley - Never Gonna Give You Up
+item.record.nyan.desc=slobs - Nyan Cat
+item.record.allbegone.desc=Mitchellbrine - All Be Gone
+item.record.spoon.desc=DJ SpoonzALot - Ima Spoon (DUBSTEP REMIX)
+item.record.uwot.desc=TotalBiscut - U f**kin wot m8
+item.record.halflife.desc=GG-Man - Half-Life 3 Rhapsody
+
+itemGroup.Kroostmas=KroostmasCraft

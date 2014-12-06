@@ -9,6 +9,7 @@ import com.jamoorev.kroostmas.util.References;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -47,6 +48,8 @@ public class KroostmasCraft {
         proxy.registerStuff();
 
         NetworkRegistry.INSTANCE.registerGuiHandler(KroostmasCraft.instance, new GuiHandler());
+
+        FMLInterModComms.sendMessage("Waila", "register", "com.jamoorev.kroostmas.compat.waila.WailaProvider.registerCallbacks");
 
         logger.info("Finished with this stuff!");
     }

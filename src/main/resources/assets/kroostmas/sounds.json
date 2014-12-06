@@ -1,0 +1,56 @@
+{
+  "records.rick": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/rick",
+        "stream": true
+      }
+    ]
+	},
+  "records.nyan": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/nyan",
+        "stream": true
+      }
+    ]
+	},
+  "records.allbegone": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/allbegone",
+        "stream": true
+      }
+    ]
+	},
+  "records.spoon": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/spoon",
+        "stream": true
+      }
+    ]
+  },
+  "records.uwot": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/uwot",
+        "stream": true
+      }
+    ]
+  },
+  "records.halflife": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/halflife",
+        "stream": true
+      }
+    ]
+  }
+}
